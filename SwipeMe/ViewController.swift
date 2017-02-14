@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIGestureRecognizerDelegate {
+    @IBOutlet weak var swipeLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,26 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func labelSwiped(_ sender: UISwipeGestureRecognizer) {
+        
+        if swipeLabel.text == "Don't Swipe Me!" {
+            swipeLabel.text = "Swiper, No Swiping!"
+        } else {
+            swipeLabel.text = "Don't Swipe Me!"
+        }
+        
+    }
 
+    @IBAction func doraButtonPressed(_ sender: UIButton) {
+        swipeLabel.text = "Dora!"
+    }
+    
+    @IBAction func bootsButtonPressed(_ sender: UIButton) {
+        swipeLabel.text = "Boots!"
+    }
+
+    @IBAction func backPackButtonPressed(_ sender: UIButton) {
+        swipeLabel.text = "Backpack!"
+    }
 }
 
